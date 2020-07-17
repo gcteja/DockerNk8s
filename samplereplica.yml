@@ -1,0 +1,20 @@
+---
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: mysample-rc
+spec:
+  replicas: 5
+  selector:
+    app: nginx
+  template:
+    metadata:
+      name: mynginxapp
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx-pod
+          image: nginx
+          ports:
+            - containerPort: 80
